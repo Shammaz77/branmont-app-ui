@@ -1,9 +1,9 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { AppShell } from "@/components/AppShell";
 import {
-  BookOpen, Calendar, ClipboardCheck, Clock, IdCard, Building2,
-  Sparkles, BookMarked, FileQuestion, GraduationCap, Video, Award,
-  Timer, Bell, Heart, MessageSquare, User, ChevronRight
+  Play, MessageCircle, ClipboardCheck, Clock, GraduationCap,
+  Award, BookOpen, Calendar, IdCard, Building2, Sparkles, BookMarked,
+  FileQuestion, Video, Timer, Heart, MessageSquare,
 } from "lucide-react";
 
 export const Route = createFileRoute("/")({
@@ -15,6 +15,16 @@ export const Route = createFileRoute("/")({
   }),
   component: Index,
 });
+
+const days = [
+  { d: "Sun", n: 1 },
+  { d: "Mon", n: 2 },
+  { d: "Tue", n: 3, active: true },
+  { d: "Wed", n: 4 },
+  { d: "Thu", n: 5 },
+  { d: "Fri", n: 6 },
+  { d: "Sat", n: 7 },
+];
 
 const quickActions = [
   { to: "/attendance", label: "Attendance", icon: ClipboardCheck, tint: "bg-emerald-50 text-emerald-600" },
@@ -41,20 +51,90 @@ const features = [
 function Index() {
   return (
     <AppShell title="Home">
-      {/* Hero greeting */}
-      <section className="rounded-3xl p-5 bg-gradient-to-br from-primary to-[oklch(0.5_0.2_290)] text-primary-foreground relative overflow-hidden mb-5">
-        <div className="absolute -right-10 -top-10 h-40 w-40 rounded-full bg-white/10 blur-2xl" />
-        <p className="text-xs/none opacity-80">Wednesday, June 3</p>
-        <h2 className="text-2xl font-semibold mt-1">Hi, Arjun 👋</h2>
-        <p className="text-sm opacity-90 mt-1">You have 3 classes today and 1 pending assignment.</p>
-        <div className="flex gap-2 mt-4">
-          <Link to="/timetable" className="text-xs font-medium bg-white/15 hover:bg-white/25 transition px-3 py-1.5 rounded-full">View timetable</Link>
-          <Link to="/attendance" className="text-xs font-medium bg-white text-primary px-3 py-1.5 rounded-full">Mark attendance</Link>
+      {/* Lesson hero card */}
+      <section className="rounded-[2rem] p-6 bg-primary-soft relative overflow-hidden mb-6">
+        <div className="max-w-[60%]">
+          <h2 className="text-2xl font-semibold leading-tight text-foreground">
+            Lesson with<br />teacher
+          </h2>
+          <p className="text-xs text-muted-foreground mt-2">Intermediate (B1)</p>
+          <p className="text-[11px] text-muted-foreground mt-0.5">step 12 of 20</p>
+          <Link
+            to="/timetable"
+            className="inline-flex items-center gap-2 mt-4 px-5 py-2.5 rounded-full bg-primary text-primary-foreground text-sm font-medium hover:opacity-95 transition"
+          >
+            <Play className="h-3.5 w-3.5 fill-current" />
+            Start lesson
+          </Link>
+        </div>
+        <div className="absolute right-4 bottom-3 top-3 w-32 grid place-items-center">
+          <div className="relative">
+            <div className="absolute -top-2 -left-6 h-10 w-10 rounded-full bg-white grid place-items-center shadow-sm">
+              <MessageCircle className="h-4 w-4 text-primary" />
+            </div>
+            <div className="absolute -top-2 -right-2 h-10 w-10 rounded-full bg-primary grid place-items-center shadow-sm">
+              <Play className="h-4 w-4 text-white fill-current" />
+            </div>
+            <div className="h-24 w-24 rounded-full bg-gradient-to-br from-primary/40 to-primary/10 grid place-items-center text-5xl">
+              👩🏻‍💻
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Class schedule */}
+      <section className="mb-6">
+        <div className="flex items-center justify-between mb-3">
+          <h3 className="text-base font-semibold">Class Schedule</h3>
+          <span className="text-xs text-muted-foreground">Nov 2025</span>
+        </div>
+        <div className="grid grid-cols-7 gap-1.5">
+          {days.map((day) => (
+            <button
+              key={day.d}
+              className={`flex flex-col items-center gap-1 py-2.5 rounded-2xl border transition ${
+                day.active
+                  ? "bg-primary text-primary-foreground border-primary"
+                  : "bg-surface border-border text-foreground/70"
+              }`}
+            >
+              <span className="text-[10px] font-medium opacity-80">{day.d}</span>
+              <span className="text-sm font-semibold">{day.n}</span>
+            </button>
+          ))}
+        </div>
+      </section>
+
+      {/* Upcoming events */}
+      <section className="mb-6">
+        <h3 className="text-base font-semibold mb-3">Upcoming events</h3>
+        <div className="rounded-[1.75rem] p-5 bg-[oklch(0.95_0.08_150)] relative">
+          <div className="flex items-start justify-between gap-3">
+            <div>
+              <span className="inline-block text-[10px] font-medium text-foreground/60 mb-1.5">Online</span>
+              <h4 className="text-xl font-semibold leading-tight">Speaking club</h4>
+              <p className="text-xs text-muted-foreground mt-1">25 November 18:00</p>
+            </div>
+            <div className="flex flex-col items-end">
+              <span className="text-[10px] text-foreground/60 mb-1">Friendly mentors</span>
+              <div className="flex -space-x-2">
+                {["🧑🏻", "👩🏽", "🧑🏽"].map((e, i) => (
+                  <div key={i} className="h-7 w-7 rounded-full bg-white border-2 border-[oklch(0.95_0.08_150)] grid place-items-center text-xs">
+                    {e}
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+          <button className="mt-4 w-full py-3 rounded-full bg-white text-foreground text-sm font-medium border border-foreground/10">
+            Book place
+          </button>
         </div>
       </section>
 
       {/* Quick actions */}
       <section className="mb-6">
+        <h3 className="text-base font-semibold mb-3">Quick Access</h3>
         <div className="grid grid-cols-4 gap-3">
           {quickActions.map((a) => {
             const Icon = a.icon;
@@ -70,21 +150,9 @@ function Index() {
         </div>
       </section>
 
-      {/* Role chips */}
-      <section className="mb-6">
-        <SectionTitle title="Switch Role" />
-        <div className="flex gap-2 overflow-x-auto -mx-4 px-4 pb-1">
-          {["Student", "Teacher", "Parent", "Accounts", "Reception"].map((r, i) => (
-            <button key={r} className={`shrink-0 text-sm px-4 py-2 rounded-full border ${i === 0 ? "bg-primary text-primary-foreground border-primary" : "bg-surface border-border text-foreground/70"}`}>
-              {r}
-            </button>
-          ))}
-        </div>
-      </section>
-
       {/* All features */}
-      <section className="mb-6">
-        <SectionTitle title="Explore" />
+      <section className="mb-2">
+        <h3 className="text-base font-semibold mb-3">Explore</h3>
         <div className="grid grid-cols-4 gap-3">
           {features.map((f) => {
             const Icon = f.icon;
@@ -99,37 +167,6 @@ function Index() {
           })}
         </div>
       </section>
-
-      {/* Today's classes preview */}
-      <section className="mb-2">
-        <SectionTitle title="Today's Classes" linkTo="/timetable" />
-        <div className="space-y-2">
-          {[
-            { time: "09:00", subject: "Mathematics", teacher: "Ms. Priya", color: "bg-blue-500" },
-            { time: "10:30", subject: "Physics", teacher: "Mr. Kumar", color: "bg-violet-500" },
-            { time: "12:00", subject: "English Lit.", teacher: "Ms. Anjali", color: "bg-emerald-500" },
-          ].map((c) => (
-            <div key={c.time} className="flex items-center gap-3 p-3 rounded-2xl bg-surface border border-border">
-              <div className={`w-1.5 h-10 rounded-full ${c.color}`} />
-              <div className="flex-1 min-w-0">
-                <p className="text-sm font-medium">{c.subject}</p>
-                <p className="text-xs text-muted-foreground">{c.teacher}</p>
-              </div>
-              <span className="text-xs font-medium text-muted-foreground">{c.time}</span>
-              <ChevronRight className="h-4 w-4 text-muted-foreground" />
-            </div>
-          ))}
-        </div>
-      </section>
     </AppShell>
-  );
-}
-
-function SectionTitle({ title, linkTo }: { title: string; linkTo?: string }) {
-  return (
-    <div className="flex items-center justify-between mb-3">
-      <h3 className="text-sm font-semibold">{title}</h3>
-      {linkTo && <Link to={linkTo} className="text-xs text-primary">See all</Link>}
-    </div>
   );
 }
