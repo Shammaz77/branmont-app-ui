@@ -9,8 +9,122 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as TimetableRouteImport } from './routes/timetable'
+import { Route as TextbookRouteImport } from './routes/textbook'
+import { Route as ResultsRouteImport } from './routes/results'
+import { Route as PyqRouteImport } from './routes/pyq'
+import { Route as ProfileRouteImport } from './routes/profile'
+import { Route as NotificationsRouteImport } from './routes/notifications'
+import { Route as MoralRouteImport } from './routes/moral'
+import { Route as MonttalkRouteImport } from './routes/monttalk'
+import { Route as MocktestRouteImport } from './routes/mocktest'
+import { Route as LoginRouteImport } from './routes/login'
+import { Route as LeaveRouteImport } from './routes/leave'
+import { Route as IdcardRouteImport } from './routes/idcard'
+import { Route as HostelRouteImport } from './routes/hostel'
+import { Route as FeedbackRouteImport } from './routes/feedback'
+import { Route as ExamsRouteImport } from './routes/exams'
+import { Route as CalendarRouteImport } from './routes/calendar'
+import { Route as AttendanceRouteImport } from './routes/attendance'
+import { Route as AiRouteImport } from './routes/ai'
+import { Route as AcademicsRouteImport } from './routes/academics'
 import { Route as IndexRouteImport } from './routes/index'
 
+const TimetableRoute = TimetableRouteImport.update({
+  id: '/timetable',
+  path: '/timetable',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TextbookRoute = TextbookRouteImport.update({
+  id: '/textbook',
+  path: '/textbook',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ResultsRoute = ResultsRouteImport.update({
+  id: '/results',
+  path: '/results',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PyqRoute = PyqRouteImport.update({
+  id: '/pyq',
+  path: '/pyq',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ProfileRoute = ProfileRouteImport.update({
+  id: '/profile',
+  path: '/profile',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const NotificationsRoute = NotificationsRouteImport.update({
+  id: '/notifications',
+  path: '/notifications',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MoralRoute = MoralRouteImport.update({
+  id: '/moral',
+  path: '/moral',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MonttalkRoute = MonttalkRouteImport.update({
+  id: '/monttalk',
+  path: '/monttalk',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MocktestRoute = MocktestRouteImport.update({
+  id: '/mocktest',
+  path: '/mocktest',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LoginRoute = LoginRouteImport.update({
+  id: '/login',
+  path: '/login',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LeaveRoute = LeaveRouteImport.update({
+  id: '/leave',
+  path: '/leave',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const IdcardRoute = IdcardRouteImport.update({
+  id: '/idcard',
+  path: '/idcard',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const HostelRoute = HostelRouteImport.update({
+  id: '/hostel',
+  path: '/hostel',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FeedbackRoute = FeedbackRouteImport.update({
+  id: '/feedback',
+  path: '/feedback',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ExamsRoute = ExamsRouteImport.update({
+  id: '/exams',
+  path: '/exams',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CalendarRoute = CalendarRouteImport.update({
+  id: '/calendar',
+  path: '/calendar',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AttendanceRoute = AttendanceRouteImport.update({
+  id: '/attendance',
+  path: '/attendance',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AiRoute = AiRouteImport.update({
+  id: '/ai',
+  path: '/ai',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AcademicsRoute = AcademicsRouteImport.update({
+  id: '/academics',
+  path: '/academics',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
@@ -19,28 +133,298 @@ const IndexRoute = IndexRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/academics': typeof AcademicsRoute
+  '/ai': typeof AiRoute
+  '/attendance': typeof AttendanceRoute
+  '/calendar': typeof CalendarRoute
+  '/exams': typeof ExamsRoute
+  '/feedback': typeof FeedbackRoute
+  '/hostel': typeof HostelRoute
+  '/idcard': typeof IdcardRoute
+  '/leave': typeof LeaveRoute
+  '/login': typeof LoginRoute
+  '/mocktest': typeof MocktestRoute
+  '/monttalk': typeof MonttalkRoute
+  '/moral': typeof MoralRoute
+  '/notifications': typeof NotificationsRoute
+  '/profile': typeof ProfileRoute
+  '/pyq': typeof PyqRoute
+  '/results': typeof ResultsRoute
+  '/textbook': typeof TextbookRoute
+  '/timetable': typeof TimetableRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/academics': typeof AcademicsRoute
+  '/ai': typeof AiRoute
+  '/attendance': typeof AttendanceRoute
+  '/calendar': typeof CalendarRoute
+  '/exams': typeof ExamsRoute
+  '/feedback': typeof FeedbackRoute
+  '/hostel': typeof HostelRoute
+  '/idcard': typeof IdcardRoute
+  '/leave': typeof LeaveRoute
+  '/login': typeof LoginRoute
+  '/mocktest': typeof MocktestRoute
+  '/monttalk': typeof MonttalkRoute
+  '/moral': typeof MoralRoute
+  '/notifications': typeof NotificationsRoute
+  '/profile': typeof ProfileRoute
+  '/pyq': typeof PyqRoute
+  '/results': typeof ResultsRoute
+  '/textbook': typeof TextbookRoute
+  '/timetable': typeof TimetableRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/academics': typeof AcademicsRoute
+  '/ai': typeof AiRoute
+  '/attendance': typeof AttendanceRoute
+  '/calendar': typeof CalendarRoute
+  '/exams': typeof ExamsRoute
+  '/feedback': typeof FeedbackRoute
+  '/hostel': typeof HostelRoute
+  '/idcard': typeof IdcardRoute
+  '/leave': typeof LeaveRoute
+  '/login': typeof LoginRoute
+  '/mocktest': typeof MocktestRoute
+  '/monttalk': typeof MonttalkRoute
+  '/moral': typeof MoralRoute
+  '/notifications': typeof NotificationsRoute
+  '/profile': typeof ProfileRoute
+  '/pyq': typeof PyqRoute
+  '/results': typeof ResultsRoute
+  '/textbook': typeof TextbookRoute
+  '/timetable': typeof TimetableRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/academics'
+    | '/ai'
+    | '/attendance'
+    | '/calendar'
+    | '/exams'
+    | '/feedback'
+    | '/hostel'
+    | '/idcard'
+    | '/leave'
+    | '/login'
+    | '/mocktest'
+    | '/monttalk'
+    | '/moral'
+    | '/notifications'
+    | '/profile'
+    | '/pyq'
+    | '/results'
+    | '/textbook'
+    | '/timetable'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/academics'
+    | '/ai'
+    | '/attendance'
+    | '/calendar'
+    | '/exams'
+    | '/feedback'
+    | '/hostel'
+    | '/idcard'
+    | '/leave'
+    | '/login'
+    | '/mocktest'
+    | '/monttalk'
+    | '/moral'
+    | '/notifications'
+    | '/profile'
+    | '/pyq'
+    | '/results'
+    | '/textbook'
+    | '/timetable'
+  id:
+    | '__root__'
+    | '/'
+    | '/academics'
+    | '/ai'
+    | '/attendance'
+    | '/calendar'
+    | '/exams'
+    | '/feedback'
+    | '/hostel'
+    | '/idcard'
+    | '/leave'
+    | '/login'
+    | '/mocktest'
+    | '/monttalk'
+    | '/moral'
+    | '/notifications'
+    | '/profile'
+    | '/pyq'
+    | '/results'
+    | '/textbook'
+    | '/timetable'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AcademicsRoute: typeof AcademicsRoute
+  AiRoute: typeof AiRoute
+  AttendanceRoute: typeof AttendanceRoute
+  CalendarRoute: typeof CalendarRoute
+  ExamsRoute: typeof ExamsRoute
+  FeedbackRoute: typeof FeedbackRoute
+  HostelRoute: typeof HostelRoute
+  IdcardRoute: typeof IdcardRoute
+  LeaveRoute: typeof LeaveRoute
+  LoginRoute: typeof LoginRoute
+  MocktestRoute: typeof MocktestRoute
+  MonttalkRoute: typeof MonttalkRoute
+  MoralRoute: typeof MoralRoute
+  NotificationsRoute: typeof NotificationsRoute
+  ProfileRoute: typeof ProfileRoute
+  PyqRoute: typeof PyqRoute
+  ResultsRoute: typeof ResultsRoute
+  TextbookRoute: typeof TextbookRoute
+  TimetableRoute: typeof TimetableRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/timetable': {
+      id: '/timetable'
+      path: '/timetable'
+      fullPath: '/timetable'
+      preLoaderRoute: typeof TimetableRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/textbook': {
+      id: '/textbook'
+      path: '/textbook'
+      fullPath: '/textbook'
+      preLoaderRoute: typeof TextbookRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/results': {
+      id: '/results'
+      path: '/results'
+      fullPath: '/results'
+      preLoaderRoute: typeof ResultsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/pyq': {
+      id: '/pyq'
+      path: '/pyq'
+      fullPath: '/pyq'
+      preLoaderRoute: typeof PyqRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/profile': {
+      id: '/profile'
+      path: '/profile'
+      fullPath: '/profile'
+      preLoaderRoute: typeof ProfileRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/notifications': {
+      id: '/notifications'
+      path: '/notifications'
+      fullPath: '/notifications'
+      preLoaderRoute: typeof NotificationsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/moral': {
+      id: '/moral'
+      path: '/moral'
+      fullPath: '/moral'
+      preLoaderRoute: typeof MoralRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/monttalk': {
+      id: '/monttalk'
+      path: '/monttalk'
+      fullPath: '/monttalk'
+      preLoaderRoute: typeof MonttalkRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/mocktest': {
+      id: '/mocktest'
+      path: '/mocktest'
+      fullPath: '/mocktest'
+      preLoaderRoute: typeof MocktestRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/login': {
+      id: '/login'
+      path: '/login'
+      fullPath: '/login'
+      preLoaderRoute: typeof LoginRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/leave': {
+      id: '/leave'
+      path: '/leave'
+      fullPath: '/leave'
+      preLoaderRoute: typeof LeaveRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/idcard': {
+      id: '/idcard'
+      path: '/idcard'
+      fullPath: '/idcard'
+      preLoaderRoute: typeof IdcardRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/hostel': {
+      id: '/hostel'
+      path: '/hostel'
+      fullPath: '/hostel'
+      preLoaderRoute: typeof HostelRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/feedback': {
+      id: '/feedback'
+      path: '/feedback'
+      fullPath: '/feedback'
+      preLoaderRoute: typeof FeedbackRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/exams': {
+      id: '/exams'
+      path: '/exams'
+      fullPath: '/exams'
+      preLoaderRoute: typeof ExamsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/calendar': {
+      id: '/calendar'
+      path: '/calendar'
+      fullPath: '/calendar'
+      preLoaderRoute: typeof CalendarRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/attendance': {
+      id: '/attendance'
+      path: '/attendance'
+      fullPath: '/attendance'
+      preLoaderRoute: typeof AttendanceRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/ai': {
+      id: '/ai'
+      path: '/ai'
+      fullPath: '/ai'
+      preLoaderRoute: typeof AiRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/academics': {
+      id: '/academics'
+      path: '/academics'
+      fullPath: '/academics'
+      preLoaderRoute: typeof AcademicsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -53,17 +437,26 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AcademicsRoute: AcademicsRoute,
+  AiRoute: AiRoute,
+  AttendanceRoute: AttendanceRoute,
+  CalendarRoute: CalendarRoute,
+  ExamsRoute: ExamsRoute,
+  FeedbackRoute: FeedbackRoute,
+  HostelRoute: HostelRoute,
+  IdcardRoute: IdcardRoute,
+  LeaveRoute: LeaveRoute,
+  LoginRoute: LoginRoute,
+  MocktestRoute: MocktestRoute,
+  MonttalkRoute: MonttalkRoute,
+  MoralRoute: MoralRoute,
+  NotificationsRoute: NotificationsRoute,
+  ProfileRoute: ProfileRoute,
+  PyqRoute: PyqRoute,
+  ResultsRoute: ResultsRoute,
+  TextbookRoute: TextbookRoute,
+  TimetableRoute: TimetableRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
-
-import type { getRouter } from './router.tsx'
-import type { startInstance } from './start.ts'
-declare module '@tanstack/react-start' {
-  interface Register {
-    ssr: true
-    router: Awaited<ReturnType<typeof getRouter>>
-    config: Awaited<ReturnType<typeof startInstance.getOptions>>
-  }
-}
