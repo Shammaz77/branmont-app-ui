@@ -1,7 +1,7 @@
 import type { ReactNode } from "react";
 import { BottomNav } from "./BottomNav";
 import { SideNav } from "./SideNav";
-import { Bell, Search } from "lucide-react";
+import { Bell } from "lucide-react";
 import { Link } from "@tanstack/react-router";
 
 export function AppShell({ children, title }: { children: ReactNode; title?: string }) {
