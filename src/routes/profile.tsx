@@ -3,7 +3,7 @@ import { AppShell } from "@/components/AppShell";
 import {
   Mail, Phone, MapPin, GraduationCap, LogOut,
   ChevronRight, IdCard, BarChart2, CalendarDays, Camera,
-  BookOpen, Bell,
+  BookOpen, Bell, BookText,
 } from "lucide-react";
 
 export const Route = createFileRoute("/profile")({
@@ -29,6 +29,7 @@ const quickLinks = [
   { icon: BarChart2, label: "Academic Report", sub: "Grades & results", to: "/results" },
   { icon: CalendarDays, label: "Leave Requests", sub: "Apply & track", to: "/leave" },
   { icon: BookOpen, label: "Academics", sub: "Subjects & syllabus", to: "/academics" },
+  { icon: BookText, label: "Tutors Diary", sub: "Conduct remarks from tutors", to: "/my-tutors-diary" },
   { icon: Bell, label: "Notifications", sub: "Alerts & updates", to: "/notifications" },
 ];
 

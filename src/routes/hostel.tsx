@@ -8,10 +8,10 @@ export const Route = createFileRoute("/hostel")({
   component: () => (
     <AppShell title="Hostel">
       <PageHeader title="Hostel Room" subtitle="Your accommodation details" />
-      <div className="p-5 rounded-3xl bg-gradient-to-br from-primary to-[oklch(0.5_0.2_290)] text-primary-foreground mb-4">
-        <Building2 className="h-7 w-7 mb-2 opacity-80" />
-        <p className="text-sm opacity-85">Block A • Floor 2</p>
-        <p className="text-3xl font-semibold mt-1">Room 204</p>
+      <div className="p-5 rounded-3xl bg-primary-soft mb-4">
+        <Building2 className="h-7 w-7 mb-2 text-primary" />
+        <p className="text-sm text-muted-foreground">Block A • Floor 2</p>
+        <p className="text-3xl font-semibold mt-1 text-foreground">Room 204</p>
       </div>
       <div className="grid grid-cols-2 gap-3 mb-5">
         <div className="p-4 rounded-2xl bg-surface border border-border">

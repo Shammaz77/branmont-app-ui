@@ -2,7 +2,8 @@ import { Link, useRouterState } from "@tanstack/react-router";
 import {
   Home, BookOpen, ClipboardCheck, Bell, User, GraduationCap,
   Calendar, IdCard, Clock, Building2, Sparkles, BookMarked,
-  FileQuestion, Video, Award, Timer, Heart, MessageSquare, LogIn
+  FileQuestion, Video, Award, Timer, Heart, MessageSquare, LogIn, Users,
+  Briefcase, ShieldCheck
 } from "lucide-react";
 
 const groups = [
@@ -20,6 +21,8 @@ const groups = [
     label: "Student Life",
     items: [
       { to: "/profile", label: "Profile", icon: User },
+      { to: "/parents", label: "Parent Portal", icon: Users },
+      { to: "/teachers", label: "Teacher Portal", icon: Briefcase },
       { to: "/idcard", label: "ID Card", icon: IdCard },
       { to: "/leave", label: "Leave Request", icon: Calendar },
       { to: "/hostel", label: "Hostel", icon: Building2 },
@@ -43,6 +46,7 @@ const groups = [
     items: [
       { to: "/notifications", label: "Notifications", icon: Bell },
       { to: "/feedback", label: "Class Feedback", icon: MessageSquare },
+      { to: "/superadmin", label: "Super Admin", icon: ShieldCheck },
       { to: "/login", label: "Login", icon: LogIn },
     ],
   },

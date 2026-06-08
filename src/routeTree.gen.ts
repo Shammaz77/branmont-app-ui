@@ -9,12 +9,23 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as WetRouteImport } from './routes/wet'
+import { Route as TutorsDiaryRouteImport } from './routes/tutors-diary'
 import { Route as TimetableRouteImport } from './routes/timetable'
 import { Route as TextbookRouteImport } from './routes/textbook'
+import { Route as TeachersRouteImport } from './routes/teachers'
+import { Route as TeacherTimetableRouteImport } from './routes/teacher-timetable'
+import { Route as TeacherFeedbackRouteImport } from './routes/teacher-feedback'
+import { Route as TeacherExamsRouteImport } from './routes/teacher-exams'
+import { Route as TeacherAttendanceRouteImport } from './routes/teacher-attendance'
 import { Route as ResultsRouteImport } from './routes/results'
+import { Route as QuranRouteImport } from './routes/quran'
 import { Route as PyqRouteImport } from './routes/pyq'
 import { Route as ProfileRouteImport } from './routes/profile'
+import { Route as PrayerAttendanceRouteImport } from './routes/prayer-attendance'
+import { Route as ParentsRouteImport } from './routes/parents'
 import { Route as NotificationsRouteImport } from './routes/notifications'
+import { Route as MyTutorsDiaryRouteImport } from './routes/my-tutors-diary'
 import { Route as MoralRouteImport } from './routes/moral'
 import { Route as MonttalkRouteImport } from './routes/monttalk'
 import { Route as MocktestRouteImport } from './routes/mocktest'
@@ -24,12 +35,28 @@ import { Route as IdcardRouteImport } from './routes/idcard'
 import { Route as HostelRouteImport } from './routes/hostel'
 import { Route as FeedbackRouteImport } from './routes/feedback'
 import { Route as ExamsRouteImport } from './routes/exams'
+import { Route as DhikrRouteImport } from './routes/dhikr'
+import { Route as DetRouteImport } from './routes/det'
 import { Route as CalendarRouteImport } from './routes/calendar'
 import { Route as AttendanceRouteImport } from './routes/attendance'
 import { Route as AiRouteImport } from './routes/ai'
 import { Route as AcademicsRouteImport } from './routes/academics'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as SuperadminIndexRouteImport } from './routes/superadmin/index'
+import { Route as SuperadminTeachersRouteImport } from './routes/superadmin/teachers'
+import { Route as SuperadminStudentsRouteImport } from './routes/superadmin/students'
+import { Route as SuperadminParentsRouteImport } from './routes/superadmin/parents'
 
+const WetRoute = WetRouteImport.update({
+  id: '/wet',
+  path: '/wet',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TutorsDiaryRoute = TutorsDiaryRouteImport.update({
+  id: '/tutors-diary',
+  path: '/tutors-diary',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const TimetableRoute = TimetableRouteImport.update({
   id: '/timetable',
   path: '/timetable',
@@ -40,9 +67,39 @@ const TextbookRoute = TextbookRouteImport.update({
   path: '/textbook',
   getParentRoute: () => rootRouteImport,
 } as any)
+const TeachersRoute = TeachersRouteImport.update({
+  id: '/teachers',
+  path: '/teachers',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TeacherTimetableRoute = TeacherTimetableRouteImport.update({
+  id: '/teacher-timetable',
+  path: '/teacher-timetable',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TeacherFeedbackRoute = TeacherFeedbackRouteImport.update({
+  id: '/teacher-feedback',
+  path: '/teacher-feedback',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TeacherExamsRoute = TeacherExamsRouteImport.update({
+  id: '/teacher-exams',
+  path: '/teacher-exams',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TeacherAttendanceRoute = TeacherAttendanceRouteImport.update({
+  id: '/teacher-attendance',
+  path: '/teacher-attendance',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ResultsRoute = ResultsRouteImport.update({
   id: '/results',
   path: '/results',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const QuranRoute = QuranRouteImport.update({
+  id: '/quran',
+  path: '/quran',
   getParentRoute: () => rootRouteImport,
 } as any)
 const PyqRoute = PyqRouteImport.update({
@@ -55,9 +112,24 @@ const ProfileRoute = ProfileRouteImport.update({
   path: '/profile',
   getParentRoute: () => rootRouteImport,
 } as any)
+const PrayerAttendanceRoute = PrayerAttendanceRouteImport.update({
+  id: '/prayer-attendance',
+  path: '/prayer-attendance',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ParentsRoute = ParentsRouteImport.update({
+  id: '/parents',
+  path: '/parents',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const NotificationsRoute = NotificationsRouteImport.update({
   id: '/notifications',
   path: '/notifications',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MyTutorsDiaryRoute = MyTutorsDiaryRouteImport.update({
+  id: '/my-tutors-diary',
+  path: '/my-tutors-diary',
   getParentRoute: () => rootRouteImport,
 } as any)
 const MoralRoute = MoralRouteImport.update({
@@ -105,6 +177,16 @@ const ExamsRoute = ExamsRouteImport.update({
   path: '/exams',
   getParentRoute: () => rootRouteImport,
 } as any)
+const DhikrRoute = DhikrRouteImport.update({
+  id: '/dhikr',
+  path: '/dhikr',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DetRoute = DetRouteImport.update({
+  id: '/det',
+  path: '/det',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const CalendarRoute = CalendarRouteImport.update({
   id: '/calendar',
   path: '/calendar',
@@ -130,6 +212,26 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const SuperadminIndexRoute = SuperadminIndexRouteImport.update({
+  id: '/superadmin/',
+  path: '/superadmin/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SuperadminTeachersRoute = SuperadminTeachersRouteImport.update({
+  id: '/superadmin/teachers',
+  path: '/superadmin/teachers',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SuperadminStudentsRoute = SuperadminStudentsRouteImport.update({
+  id: '/superadmin/students',
+  path: '/superadmin/students',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SuperadminParentsRoute = SuperadminParentsRouteImport.update({
+  id: '/superadmin/parents',
+  path: '/superadmin/parents',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -137,6 +239,8 @@ export interface FileRoutesByFullPath {
   '/ai': typeof AiRoute
   '/attendance': typeof AttendanceRoute
   '/calendar': typeof CalendarRoute
+  '/det': typeof DetRoute
+  '/dhikr': typeof DhikrRoute
   '/exams': typeof ExamsRoute
   '/feedback': typeof FeedbackRoute
   '/hostel': typeof HostelRoute
@@ -146,12 +250,27 @@ export interface FileRoutesByFullPath {
   '/mocktest': typeof MocktestRoute
   '/monttalk': typeof MonttalkRoute
   '/moral': typeof MoralRoute
+  '/my-tutors-diary': typeof MyTutorsDiaryRoute
   '/notifications': typeof NotificationsRoute
+  '/parents': typeof ParentsRoute
+  '/prayer-attendance': typeof PrayerAttendanceRoute
   '/profile': typeof ProfileRoute
   '/pyq': typeof PyqRoute
+  '/quran': typeof QuranRoute
   '/results': typeof ResultsRoute
+  '/teacher-attendance': typeof TeacherAttendanceRoute
+  '/teacher-exams': typeof TeacherExamsRoute
+  '/teacher-feedback': typeof TeacherFeedbackRoute
+  '/teacher-timetable': typeof TeacherTimetableRoute
+  '/teachers': typeof TeachersRoute
   '/textbook': typeof TextbookRoute
   '/timetable': typeof TimetableRoute
+  '/tutors-diary': typeof TutorsDiaryRoute
+  '/wet': typeof WetRoute
+  '/superadmin/parents': typeof SuperadminParentsRoute
+  '/superadmin/students': typeof SuperadminStudentsRoute
+  '/superadmin/teachers': typeof SuperadminTeachersRoute
+  '/superadmin/': typeof SuperadminIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -159,6 +278,8 @@ export interface FileRoutesByTo {
   '/ai': typeof AiRoute
   '/attendance': typeof AttendanceRoute
   '/calendar': typeof CalendarRoute
+  '/det': typeof DetRoute
+  '/dhikr': typeof DhikrRoute
   '/exams': typeof ExamsRoute
   '/feedback': typeof FeedbackRoute
   '/hostel': typeof HostelRoute
@@ -168,12 +289,27 @@ export interface FileRoutesByTo {
   '/mocktest': typeof MocktestRoute
   '/monttalk': typeof MonttalkRoute
   '/moral': typeof MoralRoute
+  '/my-tutors-diary': typeof MyTutorsDiaryRoute
   '/notifications': typeof NotificationsRoute
+  '/parents': typeof ParentsRoute
+  '/prayer-attendance': typeof PrayerAttendanceRoute
   '/profile': typeof ProfileRoute
   '/pyq': typeof PyqRoute
+  '/quran': typeof QuranRoute
   '/results': typeof ResultsRoute
+  '/teacher-attendance': typeof TeacherAttendanceRoute
+  '/teacher-exams': typeof TeacherExamsRoute
+  '/teacher-feedback': typeof TeacherFeedbackRoute
+  '/teacher-timetable': typeof TeacherTimetableRoute
+  '/teachers': typeof TeachersRoute
   '/textbook': typeof TextbookRoute
   '/timetable': typeof TimetableRoute
+  '/tutors-diary': typeof TutorsDiaryRoute
+  '/wet': typeof WetRoute
+  '/superadmin/parents': typeof SuperadminParentsRoute
+  '/superadmin/students': typeof SuperadminStudentsRoute
+  '/superadmin/teachers': typeof SuperadminTeachersRoute
+  '/superadmin': typeof SuperadminIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -182,6 +318,8 @@ export interface FileRoutesById {
   '/ai': typeof AiRoute
   '/attendance': typeof AttendanceRoute
   '/calendar': typeof CalendarRoute
+  '/det': typeof DetRoute
+  '/dhikr': typeof DhikrRoute
   '/exams': typeof ExamsRoute
   '/feedback': typeof FeedbackRoute
   '/hostel': typeof HostelRoute
@@ -191,12 +329,27 @@ export interface FileRoutesById {
   '/mocktest': typeof MocktestRoute
   '/monttalk': typeof MonttalkRoute
   '/moral': typeof MoralRoute
+  '/my-tutors-diary': typeof MyTutorsDiaryRoute
   '/notifications': typeof NotificationsRoute
+  '/parents': typeof ParentsRoute
+  '/prayer-attendance': typeof PrayerAttendanceRoute
   '/profile': typeof ProfileRoute
   '/pyq': typeof PyqRoute
+  '/quran': typeof QuranRoute
   '/results': typeof ResultsRoute
+  '/teacher-attendance': typeof TeacherAttendanceRoute
+  '/teacher-exams': typeof TeacherExamsRoute
+  '/teacher-feedback': typeof TeacherFeedbackRoute
+  '/teacher-timetable': typeof TeacherTimetableRoute
+  '/teachers': typeof TeachersRoute
   '/textbook': typeof TextbookRoute
   '/timetable': typeof TimetableRoute
+  '/tutors-diary': typeof TutorsDiaryRoute
+  '/wet': typeof WetRoute
+  '/superadmin/parents': typeof SuperadminParentsRoute
+  '/superadmin/students': typeof SuperadminStudentsRoute
+  '/superadmin/teachers': typeof SuperadminTeachersRoute
+  '/superadmin/': typeof SuperadminIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -206,6 +359,8 @@ export interface FileRouteTypes {
     | '/ai'
     | '/attendance'
     | '/calendar'
+    | '/det'
+    | '/dhikr'
     | '/exams'
     | '/feedback'
     | '/hostel'
@@ -215,12 +370,27 @@ export interface FileRouteTypes {
     | '/mocktest'
     | '/monttalk'
     | '/moral'
+    | '/my-tutors-diary'
     | '/notifications'
+    | '/parents'
+    | '/prayer-attendance'
     | '/profile'
     | '/pyq'
+    | '/quran'
     | '/results'
+    | '/teacher-attendance'
+    | '/teacher-exams'
+    | '/teacher-feedback'
+    | '/teacher-timetable'
+    | '/teachers'
     | '/textbook'
     | '/timetable'
+    | '/tutors-diary'
+    | '/wet'
+    | '/superadmin/parents'
+    | '/superadmin/students'
+    | '/superadmin/teachers'
+    | '/superadmin/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -228,6 +398,8 @@ export interface FileRouteTypes {
     | '/ai'
     | '/attendance'
     | '/calendar'
+    | '/det'
+    | '/dhikr'
     | '/exams'
     | '/feedback'
     | '/hostel'
@@ -237,12 +409,27 @@ export interface FileRouteTypes {
     | '/mocktest'
     | '/monttalk'
     | '/moral'
+    | '/my-tutors-diary'
     | '/notifications'
+    | '/parents'
+    | '/prayer-attendance'
     | '/profile'
     | '/pyq'
+    | '/quran'
     | '/results'
+    | '/teacher-attendance'
+    | '/teacher-exams'
+    | '/teacher-feedback'
+    | '/teacher-timetable'
+    | '/teachers'
     | '/textbook'
     | '/timetable'
+    | '/tutors-diary'
+    | '/wet'
+    | '/superadmin/parents'
+    | '/superadmin/students'
+    | '/superadmin/teachers'
+    | '/superadmin'
   id:
     | '__root__'
     | '/'
@@ -250,6 +437,8 @@ export interface FileRouteTypes {
     | '/ai'
     | '/attendance'
     | '/calendar'
+    | '/det'
+    | '/dhikr'
     | '/exams'
     | '/feedback'
     | '/hostel'
@@ -259,12 +448,27 @@ export interface FileRouteTypes {
     | '/mocktest'
     | '/monttalk'
     | '/moral'
+    | '/my-tutors-diary'
     | '/notifications'
+    | '/parents'
+    | '/prayer-attendance'
     | '/profile'
     | '/pyq'
+    | '/quran'
     | '/results'
+    | '/teacher-attendance'
+    | '/teacher-exams'
+    | '/teacher-feedback'
+    | '/teacher-timetable'
+    | '/teachers'
     | '/textbook'
     | '/timetable'
+    | '/tutors-diary'
+    | '/wet'
+    | '/superadmin/parents'
+    | '/superadmin/students'
+    | '/superadmin/teachers'
+    | '/superadmin/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -273,6 +477,8 @@ export interface RootRouteChildren {
   AiRoute: typeof AiRoute
   AttendanceRoute: typeof AttendanceRoute
   CalendarRoute: typeof CalendarRoute
+  DetRoute: typeof DetRoute
+  DhikrRoute: typeof DhikrRoute
   ExamsRoute: typeof ExamsRoute
   FeedbackRoute: typeof FeedbackRoute
   HostelRoute: typeof HostelRoute
@@ -282,16 +488,45 @@ export interface RootRouteChildren {
   MocktestRoute: typeof MocktestRoute
   MonttalkRoute: typeof MonttalkRoute
   MoralRoute: typeof MoralRoute
+  MyTutorsDiaryRoute: typeof MyTutorsDiaryRoute
   NotificationsRoute: typeof NotificationsRoute
+  ParentsRoute: typeof ParentsRoute
+  PrayerAttendanceRoute: typeof PrayerAttendanceRoute
   ProfileRoute: typeof ProfileRoute
   PyqRoute: typeof PyqRoute
+  QuranRoute: typeof QuranRoute
   ResultsRoute: typeof ResultsRoute
+  TeacherAttendanceRoute: typeof TeacherAttendanceRoute
+  TeacherExamsRoute: typeof TeacherExamsRoute
+  TeacherFeedbackRoute: typeof TeacherFeedbackRoute
+  TeacherTimetableRoute: typeof TeacherTimetableRoute
+  TeachersRoute: typeof TeachersRoute
   TextbookRoute: typeof TextbookRoute
   TimetableRoute: typeof TimetableRoute
+  TutorsDiaryRoute: typeof TutorsDiaryRoute
+  WetRoute: typeof WetRoute
+  SuperadminParentsRoute: typeof SuperadminParentsRoute
+  SuperadminStudentsRoute: typeof SuperadminStudentsRoute
+  SuperadminTeachersRoute: typeof SuperadminTeachersRoute
+  SuperadminIndexRoute: typeof SuperadminIndexRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/wet': {
+      id: '/wet'
+      path: '/wet'
+      fullPath: '/wet'
+      preLoaderRoute: typeof WetRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/tutors-diary': {
+      id: '/tutors-diary'
+      path: '/tutors-diary'
+      fullPath: '/tutors-diary'
+      preLoaderRoute: typeof TutorsDiaryRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/timetable': {
       id: '/timetable'
       path: '/timetable'
@@ -306,11 +541,53 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof TextbookRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/teachers': {
+      id: '/teachers'
+      path: '/teachers'
+      fullPath: '/teachers'
+      preLoaderRoute: typeof TeachersRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/teacher-timetable': {
+      id: '/teacher-timetable'
+      path: '/teacher-timetable'
+      fullPath: '/teacher-timetable'
+      preLoaderRoute: typeof TeacherTimetableRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/teacher-feedback': {
+      id: '/teacher-feedback'
+      path: '/teacher-feedback'
+      fullPath: '/teacher-feedback'
+      preLoaderRoute: typeof TeacherFeedbackRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/teacher-exams': {
+      id: '/teacher-exams'
+      path: '/teacher-exams'
+      fullPath: '/teacher-exams'
+      preLoaderRoute: typeof TeacherExamsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/teacher-attendance': {
+      id: '/teacher-attendance'
+      path: '/teacher-attendance'
+      fullPath: '/teacher-attendance'
+      preLoaderRoute: typeof TeacherAttendanceRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/results': {
       id: '/results'
       path: '/results'
       fullPath: '/results'
       preLoaderRoute: typeof ResultsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/quran': {
+      id: '/quran'
+      path: '/quran'
+      fullPath: '/quran'
+      preLoaderRoute: typeof QuranRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/pyq': {
@@ -327,11 +604,32 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ProfileRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/prayer-attendance': {
+      id: '/prayer-attendance'
+      path: '/prayer-attendance'
+      fullPath: '/prayer-attendance'
+      preLoaderRoute: typeof PrayerAttendanceRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/parents': {
+      id: '/parents'
+      path: '/parents'
+      fullPath: '/parents'
+      preLoaderRoute: typeof ParentsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/notifications': {
       id: '/notifications'
       path: '/notifications'
       fullPath: '/notifications'
       preLoaderRoute: typeof NotificationsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/my-tutors-diary': {
+      id: '/my-tutors-diary'
+      path: '/my-tutors-diary'
+      fullPath: '/my-tutors-diary'
+      preLoaderRoute: typeof MyTutorsDiaryRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/moral': {
@@ -397,6 +695,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ExamsRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/dhikr': {
+      id: '/dhikr'
+      path: '/dhikr'
+      fullPath: '/dhikr'
+      preLoaderRoute: typeof DhikrRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/det': {
+      id: '/det'
+      path: '/det'
+      fullPath: '/det'
+      preLoaderRoute: typeof DetRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/calendar': {
       id: '/calendar'
       path: '/calendar'
@@ -432,6 +744,34 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/superadmin/': {
+      id: '/superadmin/'
+      path: '/superadmin'
+      fullPath: '/superadmin/'
+      preLoaderRoute: typeof SuperadminIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/superadmin/teachers': {
+      id: '/superadmin/teachers'
+      path: '/superadmin/teachers'
+      fullPath: '/superadmin/teachers'
+      preLoaderRoute: typeof SuperadminTeachersRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/superadmin/students': {
+      id: '/superadmin/students'
+      path: '/superadmin/students'
+      fullPath: '/superadmin/students'
+      preLoaderRoute: typeof SuperadminStudentsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/superadmin/parents': {
+      id: '/superadmin/parents'
+      path: '/superadmin/parents'
+      fullPath: '/superadmin/parents'
+      preLoaderRoute: typeof SuperadminParentsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -441,6 +781,8 @@ const rootRouteChildren: RootRouteChildren = {
   AiRoute: AiRoute,
   AttendanceRoute: AttendanceRoute,
   CalendarRoute: CalendarRoute,
+  DetRoute: DetRoute,
+  DhikrRoute: DhikrRoute,
   ExamsRoute: ExamsRoute,
   FeedbackRoute: FeedbackRoute,
   HostelRoute: HostelRoute,
@@ -450,12 +792,27 @@ const rootRouteChildren: RootRouteChildren = {
   MocktestRoute: MocktestRoute,
   MonttalkRoute: MonttalkRoute,
   MoralRoute: MoralRoute,
+  MyTutorsDiaryRoute: MyTutorsDiaryRoute,
   NotificationsRoute: NotificationsRoute,
+  ParentsRoute: ParentsRoute,
+  PrayerAttendanceRoute: PrayerAttendanceRoute,
   ProfileRoute: ProfileRoute,
   PyqRoute: PyqRoute,
+  QuranRoute: QuranRoute,
   ResultsRoute: ResultsRoute,
+  TeacherAttendanceRoute: TeacherAttendanceRoute,
+  TeacherExamsRoute: TeacherExamsRoute,
+  TeacherFeedbackRoute: TeacherFeedbackRoute,
+  TeacherTimetableRoute: TeacherTimetableRoute,
+  TeachersRoute: TeachersRoute,
   TextbookRoute: TextbookRoute,
   TimetableRoute: TimetableRoute,
+  TutorsDiaryRoute: TutorsDiaryRoute,
+  WetRoute: WetRoute,
+  SuperadminParentsRoute: SuperadminParentsRoute,
+  SuperadminStudentsRoute: SuperadminStudentsRoute,
+  SuperadminTeachersRoute: SuperadminTeachersRoute,
+  SuperadminIndexRoute: SuperadminIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
