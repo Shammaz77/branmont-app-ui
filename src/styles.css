@@ -4,8 +4,6 @@
 
 @custom-variant dark (&:is(.dark *));
 
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap");
-
 @theme inline {
   --font-sans: "Poppins", system-ui, sans-serif;
   --radius-sm: calc(var(--radius) - 4px);
@@ -51,13 +49,13 @@
   --card-foreground: oklch(0.22 0.03 280);
   --popover: oklch(1 0 0);
   --popover-foreground: oklch(0.22 0.03 280);
-  --primary: oklch(0.62 0.2 300);
+  --primary: oklch(0.67 0.148 72);
   --primary-foreground: oklch(0.99 0 0);
-  --primary-soft: oklch(0.94 0.06 300);
-  --secondary: oklch(0.96 0.015 285);
-  --secondary-foreground: oklch(0.28 0.04 280);
-  --muted: oklch(0.96 0.012 285);
-  --muted-foreground: oklch(0.55 0.025 280);
+  --primary-soft: oklch(0.95 0.045 74);
+  --secondary: oklch(0.96 0.012 72);
+  --secondary-foreground: oklch(0.28 0.04 70);
+  --muted: oklch(0.96 0.008 75);
+  --muted-foreground: oklch(0.55 0.02 70);
   --accent: oklch(0.88 0.12 150);
   --accent-foreground: oklch(0.32 0.08 160);
   --destructive: oklch(0.62 0.22 27);
@@ -67,7 +65,7 @@
   --info: oklch(0.7 0.13 230);
   --border: oklch(0.93 0.01 285);
   --input: oklch(0.93 0.01 285);
-  --ring: oklch(0.62 0.2 300);
+  --ring: oklch(0.67 0.148 72);
 }
 
 @layer base {

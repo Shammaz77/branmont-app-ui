@@ -1,47 +1,47 @@
 import { Link, useRouterState } from "@tanstack/react-router";
-import { Home, BookOpen, ClipboardCheck, User } from "lucide-react";
+import { Home, BookOpen, ClipboardCheck, GraduationCap, User } from "lucide-react";
 
 const items = [
   { to: "/", label: "Home", icon: Home },
   { to: "/academics", label: "Courses", icon: BookOpen },
-  { to: "/exams", label: "Tests", icon: ClipboardCheck },
+  { to: "/attendance", label: "Attend", icon: ClipboardCheck },
+  { to: "/exams", label: "Exams", icon: GraduationCap },
+  { to: "/profile", label: "Profile", icon: User },
 ];
 
 export function BottomNav() {
   const pathname = useRouterState({ select: (s) => s.location.pathname });
   return (
     <nav className="fixed bottom-0 inset-x-0 z-40 md:hidden">
-      <div className="mx-auto max-w-md px-4 pb-4 flex items-center gap-3">
-        <div className="flex-1 rounded-full bg-surface border border-border shadow-[0_10px_30px_-12px_rgba(60,40,120,0.18)] py-2.5 px-2">
-          <ul className="grid grid-cols-3">
-            {items.map((it) => {
-              const active = pathname === it.to;
-              const Icon = it.icon;
-              return (
-                <li key={it.to} className="flex justify-center">
-                  <Link
-                    to={it.to}
-                    className={`flex flex-col items-center gap-0.5 px-3 py-1 rounded-full transition-all ${
+      <div className="bg-surface/95 backdrop-blur-xl border-t border-border/50 px-2 pt-2 pb-3">
+        <ul className="flex items-center justify-around">
+          {items.map((it) => {
+            const active = pathname === it.to;
+            const Icon = it.icon;
+            return (
+              <li key={it.to} className="flex-1">
+                <Link to={it.to} className="flex flex-col items-center gap-1">
+                  <span
+                    className={`h-9 w-9 rounded-xl grid place-items-center transition-all duration-200 ${
+                      active
+                        ? "bg-primary text-primary-foreground shadow-md shadow-primary/25"
+                        : "text-muted-foreground"
+                    }`}
+                  >
+                    <Icon className="h-[18px] w-[18px]" strokeWidth={active ? 2.5 : 1.8} />
+                  </span>
+                  <span
+                    className={`text-[10px] font-medium leading-none transition-colors ${
                       active ? "text-primary" : "text-muted-foreground"
                     }`}
                   >
-                    <Icon className="h-5 w-5" strokeWidth={active ? 2.4 : 1.8} />
-                    <span className="text-[10px] font-medium">{it.label}</span>
-                  </Link>
-                </li>
-              );
-            })}
-          </ul>
-        </div>
-        <Link
-          to="/profile"
-          className={`h-14 w-14 shrink-0 rounded-full bg-surface border border-border grid place-items-center shadow-[0_10px_30px_-12px_rgba(60,40,120,0.18)] ${
-            pathname === "/profile" ? "text-primary" : "text-muted-foreground"
-          }`}
-          aria-label="Profile"
-        >
-          <User className="h-5 w-5" />
-        </Link>
+                    {it.label}
+                  </span>
+                </Link>
+              </li>
+            );
+          })}
+        </ul>
       </div>
     </nav>
   );
