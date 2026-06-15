@@ -18,6 +18,7 @@ import { Route as TeacherTimetableRouteImport } from './routes/teacher-timetable
 import { Route as TeacherFeedbackRouteImport } from './routes/teacher-feedback'
 import { Route as TeacherExamsRouteImport } from './routes/teacher-exams'
 import { Route as TeacherAttendanceRouteImport } from './routes/teacher-attendance'
+import { Route as StudentsRouteImport } from './routes/students'
 import { Route as ResultsRouteImport } from './routes/results'
 import { Route as QuranRouteImport } from './routes/quran'
 import { Route as PyqRouteImport } from './routes/pyq'
@@ -27,7 +28,6 @@ import { Route as ParentsRouteImport } from './routes/parents'
 import { Route as ParentChildResultsRouteImport } from './routes/parent-child-results'
 import { Route as ParentChildLeaveRouteImport } from './routes/parent-child-leave'
 import { Route as ParentChildAttendanceRouteImport } from './routes/parent-child-attendance'
-import { Route as PagesRouteImport } from './routes/pages'
 import { Route as NotificationsRouteImport } from './routes/notifications'
 import { Route as MyTutorsDiaryRouteImport } from './routes/my-tutors-diary'
 import { Route as MoralRouteImport } from './routes/moral'
@@ -98,6 +98,11 @@ const TeacherAttendanceRoute = TeacherAttendanceRouteImport.update({
   path: '/teacher-attendance',
   getParentRoute: () => rootRouteImport,
 } as any)
+const StudentsRoute = StudentsRouteImport.update({
+  id: '/students',
+  path: '/students',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ResultsRoute = ResultsRouteImport.update({
   id: '/results',
   path: '/results',
@@ -141,11 +146,6 @@ const ParentChildLeaveRoute = ParentChildLeaveRouteImport.update({
 const ParentChildAttendanceRoute = ParentChildAttendanceRouteImport.update({
   id: '/parent-child-attendance',
   path: '/parent-child-attendance',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const PagesRoute = PagesRouteImport.update({
-  id: '/pages',
-  path: '/pages',
   getParentRoute: () => rootRouteImport,
 } as any)
 const NotificationsRoute = NotificationsRouteImport.update({
@@ -288,7 +288,6 @@ export interface FileRoutesByFullPath {
   '/moral': typeof MoralRoute
   '/my-tutors-diary': typeof MyTutorsDiaryRoute
   '/notifications': typeof NotificationsRoute
-  '/pages': typeof PagesRoute
   '/parent-child-attendance': typeof ParentChildAttendanceRoute
   '/parent-child-leave': typeof ParentChildLeaveRoute
   '/parent-child-results': typeof ParentChildResultsRoute
@@ -298,6 +297,7 @@ export interface FileRoutesByFullPath {
   '/pyq': typeof PyqRoute
   '/quran': typeof QuranRoute
   '/results': typeof ResultsRoute
+  '/students': typeof StudentsRoute
   '/teacher-attendance': typeof TeacherAttendanceRoute
   '/teacher-exams': typeof TeacherExamsRoute
   '/teacher-feedback': typeof TeacherFeedbackRoute
@@ -333,7 +333,6 @@ export interface FileRoutesByTo {
   '/moral': typeof MoralRoute
   '/my-tutors-diary': typeof MyTutorsDiaryRoute
   '/notifications': typeof NotificationsRoute
-  '/pages': typeof PagesRoute
   '/parent-child-attendance': typeof ParentChildAttendanceRoute
   '/parent-child-leave': typeof ParentChildLeaveRoute
   '/parent-child-results': typeof ParentChildResultsRoute
@@ -343,6 +342,7 @@ export interface FileRoutesByTo {
   '/pyq': typeof PyqRoute
   '/quran': typeof QuranRoute
   '/results': typeof ResultsRoute
+  '/students': typeof StudentsRoute
   '/teacher-attendance': typeof TeacherAttendanceRoute
   '/teacher-exams': typeof TeacherExamsRoute
   '/teacher-feedback': typeof TeacherFeedbackRoute
@@ -379,7 +379,6 @@ export interface FileRoutesById {
   '/moral': typeof MoralRoute
   '/my-tutors-diary': typeof MyTutorsDiaryRoute
   '/notifications': typeof NotificationsRoute
-  '/pages': typeof PagesRoute
   '/parent-child-attendance': typeof ParentChildAttendanceRoute
   '/parent-child-leave': typeof ParentChildLeaveRoute
   '/parent-child-results': typeof ParentChildResultsRoute
@@ -389,6 +388,7 @@ export interface FileRoutesById {
   '/pyq': typeof PyqRoute
   '/quran': typeof QuranRoute
   '/results': typeof ResultsRoute
+  '/students': typeof StudentsRoute
   '/teacher-attendance': typeof TeacherAttendanceRoute
   '/teacher-exams': typeof TeacherExamsRoute
   '/teacher-feedback': typeof TeacherFeedbackRoute
@@ -426,7 +426,6 @@ export interface FileRouteTypes {
     | '/moral'
     | '/my-tutors-diary'
     | '/notifications'
-    | '/pages'
     | '/parent-child-attendance'
     | '/parent-child-leave'
     | '/parent-child-results'
@@ -436,6 +435,7 @@ export interface FileRouteTypes {
     | '/pyq'
     | '/quran'
     | '/results'
+    | '/students'
     | '/teacher-attendance'
     | '/teacher-exams'
     | '/teacher-feedback'
@@ -471,7 +471,6 @@ export interface FileRouteTypes {
     | '/moral'
     | '/my-tutors-diary'
     | '/notifications'
-    | '/pages'
     | '/parent-child-attendance'
     | '/parent-child-leave'
     | '/parent-child-results'
@@ -481,6 +480,7 @@ export interface FileRouteTypes {
     | '/pyq'
     | '/quran'
     | '/results'
+    | '/students'
     | '/teacher-attendance'
     | '/teacher-exams'
     | '/teacher-feedback'
@@ -516,7 +516,6 @@ export interface FileRouteTypes {
     | '/moral'
     | '/my-tutors-diary'
     | '/notifications'
-    | '/pages'
     | '/parent-child-attendance'
     | '/parent-child-leave'
     | '/parent-child-results'
@@ -526,6 +525,7 @@ export interface FileRouteTypes {
     | '/pyq'
     | '/quran'
     | '/results'
+    | '/students'
     | '/teacher-attendance'
     | '/teacher-exams'
     | '/teacher-feedback'
@@ -562,7 +562,6 @@ export interface RootRouteChildren {
   MoralRoute: typeof MoralRoute
   MyTutorsDiaryRoute: typeof MyTutorsDiaryRoute
   NotificationsRoute: typeof NotificationsRoute
-  PagesRoute: typeof PagesRoute
   ParentChildAttendanceRoute: typeof ParentChildAttendanceRoute
   ParentChildLeaveRoute: typeof ParentChildLeaveRoute
   ParentChildResultsRoute: typeof ParentChildResultsRoute
@@ -572,6 +571,7 @@ export interface RootRouteChildren {
   PyqRoute: typeof PyqRoute
   QuranRoute: typeof QuranRoute
   ResultsRoute: typeof ResultsRoute
+  StudentsRoute: typeof StudentsRoute
   TeacherAttendanceRoute: typeof TeacherAttendanceRoute
   TeacherExamsRoute: typeof TeacherExamsRoute
   TeacherFeedbackRoute: typeof TeacherFeedbackRoute
@@ -654,6 +654,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof TeacherAttendanceRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/students': {
+      id: '/students'
+      path: '/students'
+      fullPath: '/students'
+      preLoaderRoute: typeof StudentsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/results': {
       id: '/results'
       path: '/results'
@@ -715,13 +722,6 @@ declare module '@tanstack/react-router' {
       path: '/parent-child-attendance'
       fullPath: '/parent-child-attendance'
       preLoaderRoute: typeof ParentChildAttendanceRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/pages': {
-      id: '/pages'
-      path: '/pages'
-      fullPath: '/pages'
-      preLoaderRoute: typeof PagesRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/notifications': {
@@ -914,7 +914,6 @@ const rootRouteChildren: RootRouteChildren = {
   MoralRoute: MoralRoute,
   MyTutorsDiaryRoute: MyTutorsDiaryRoute,
   NotificationsRoute: NotificationsRoute,
-  PagesRoute: PagesRoute,
   ParentChildAttendanceRoute: ParentChildAttendanceRoute,
   ParentChildLeaveRoute: ParentChildLeaveRoute,
   ParentChildResultsRoute: ParentChildResultsRoute,
@@ -924,6 +923,7 @@ const rootRouteChildren: RootRouteChildren = {
   PyqRoute: PyqRoute,
   QuranRoute: QuranRoute,
   ResultsRoute: ResultsRoute,
+  StudentsRoute: StudentsRoute,
   TeacherAttendanceRoute: TeacherAttendanceRoute,
   TeacherExamsRoute: TeacherExamsRoute,
   TeacherFeedbackRoute: TeacherFeedbackRoute,

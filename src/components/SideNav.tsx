@@ -3,7 +3,7 @@ import {
   Home, BookOpen, ClipboardCheck, Bell, User, GraduationCap,
   Calendar, IdCard, Clock, Building2, Sparkles, BookMarked,
   FileQuestion, Video, Award, Timer, Heart, MessageSquare, LogIn, Users,
-  Briefcase, ShieldCheck, LayoutGrid
+  Briefcase, ShieldCheck
 } from "lucide-react";
 
 const groups = [
@@ -11,6 +11,7 @@ const groups = [
     label: "Main",
     items: [
       { to: "/", label: "Home", icon: Home },
+      { to: "/students", label: "Student Dashboard", icon: GraduationCap },
       { to: "/academics", label: "Academics", icon: BookOpen },
       { to: "/calendar", label: "Calendar", icon: Calendar },
       { to: "/attendance", label: "Attendance", icon: ClipboardCheck },
@@ -44,7 +45,6 @@ const groups = [
   {
     label: "More",
     items: [
-      { to: "/pages", label: "All Pages", icon: LayoutGrid },
       { to: "/notifications", label: "Notifications", icon: Bell },
       { to: "/feedback", label: "Class Feedback", icon: MessageSquare },
       { to: "/superadmin", label: "Super Admin", icon: ShieldCheck },
