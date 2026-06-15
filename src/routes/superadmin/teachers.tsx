@@ -1,6 +1,7 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import { AppShell } from "@/components/AppShell";
 import { PageHeader } from "@/components/PageHeader";
+import { UserPlus } from "lucide-react";
 
 export const Route = createFileRoute("/superadmin/teachers")({
   head: () => ({ meta: [{ title: "All Teachers — Super Admin" }] }),
@@ -21,6 +22,14 @@ function TeachersListPage() {
   return (
     <AppShell title="All Teachers" subtitle="Super Admin · Faculty directory">
       <PageHeader title="All Teachers" subtitle={`${teachersList.length} faculty members`} />
+
+      <Link
+        to="/superadmin/add-teacher"
+        className="w-full flex items-center justify-center gap-2 rounded-2xl bg-primary text-primary-foreground font-semibold text-sm h-12 mb-5 active:scale-[0.99] transition-transform"
+      >
+        <UserPlus className="h-4 w-4" /> Add Teacher
+      </Link>
+
       <div className="space-y-2">
         {teachersList.map((t) => (
           <div key={t.name} className="flex items-center gap-3 p-3 rounded-2xl bg-surface border border-border">

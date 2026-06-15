@@ -24,6 +24,10 @@ import { Route as PyqRouteImport } from './routes/pyq'
 import { Route as ProfileRouteImport } from './routes/profile'
 import { Route as PrayerAttendanceRouteImport } from './routes/prayer-attendance'
 import { Route as ParentsRouteImport } from './routes/parents'
+import { Route as ParentChildResultsRouteImport } from './routes/parent-child-results'
+import { Route as ParentChildLeaveRouteImport } from './routes/parent-child-leave'
+import { Route as ParentChildAttendanceRouteImport } from './routes/parent-child-attendance'
+import { Route as PagesRouteImport } from './routes/pages'
 import { Route as NotificationsRouteImport } from './routes/notifications'
 import { Route as MyTutorsDiaryRouteImport } from './routes/my-tutors-diary'
 import { Route as MoralRouteImport } from './routes/moral'
@@ -46,6 +50,8 @@ import { Route as SuperadminIndexRouteImport } from './routes/superadmin/index'
 import { Route as SuperadminTeachersRouteImport } from './routes/superadmin/teachers'
 import { Route as SuperadminStudentsRouteImport } from './routes/superadmin/students'
 import { Route as SuperadminParentsRouteImport } from './routes/superadmin/parents'
+import { Route as SuperadminBatchesRouteImport } from './routes/superadmin/batches'
+import { Route as SuperadminAddTeacherRouteImport } from './routes/superadmin/add-teacher'
 
 const WetRoute = WetRouteImport.update({
   id: '/wet',
@@ -120,6 +126,26 @@ const PrayerAttendanceRoute = PrayerAttendanceRouteImport.update({
 const ParentsRoute = ParentsRouteImport.update({
   id: '/parents',
   path: '/parents',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ParentChildResultsRoute = ParentChildResultsRouteImport.update({
+  id: '/parent-child-results',
+  path: '/parent-child-results',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ParentChildLeaveRoute = ParentChildLeaveRouteImport.update({
+  id: '/parent-child-leave',
+  path: '/parent-child-leave',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ParentChildAttendanceRoute = ParentChildAttendanceRouteImport.update({
+  id: '/parent-child-attendance',
+  path: '/parent-child-attendance',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PagesRoute = PagesRouteImport.update({
+  id: '/pages',
+  path: '/pages',
   getParentRoute: () => rootRouteImport,
 } as any)
 const NotificationsRoute = NotificationsRouteImport.update({
@@ -232,6 +258,16 @@ const SuperadminParentsRoute = SuperadminParentsRouteImport.update({
   path: '/superadmin/parents',
   getParentRoute: () => rootRouteImport,
 } as any)
+const SuperadminBatchesRoute = SuperadminBatchesRouteImport.update({
+  id: '/superadmin/batches',
+  path: '/superadmin/batches',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SuperadminAddTeacherRoute = SuperadminAddTeacherRouteImport.update({
+  id: '/superadmin/add-teacher',
+  path: '/superadmin/add-teacher',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -252,6 +288,10 @@ export interface FileRoutesByFullPath {
   '/moral': typeof MoralRoute
   '/my-tutors-diary': typeof MyTutorsDiaryRoute
   '/notifications': typeof NotificationsRoute
+  '/pages': typeof PagesRoute
+  '/parent-child-attendance': typeof ParentChildAttendanceRoute
+  '/parent-child-leave': typeof ParentChildLeaveRoute
+  '/parent-child-results': typeof ParentChildResultsRoute
   '/parents': typeof ParentsRoute
   '/prayer-attendance': typeof PrayerAttendanceRoute
   '/profile': typeof ProfileRoute
@@ -267,6 +307,8 @@ export interface FileRoutesByFullPath {
   '/timetable': typeof TimetableRoute
   '/tutors-diary': typeof TutorsDiaryRoute
   '/wet': typeof WetRoute
+  '/superadmin/add-teacher': typeof SuperadminAddTeacherRoute
+  '/superadmin/batches': typeof SuperadminBatchesRoute
   '/superadmin/parents': typeof SuperadminParentsRoute
   '/superadmin/students': typeof SuperadminStudentsRoute
   '/superadmin/teachers': typeof SuperadminTeachersRoute
@@ -291,6 +333,10 @@ export interface FileRoutesByTo {
   '/moral': typeof MoralRoute
   '/my-tutors-diary': typeof MyTutorsDiaryRoute
   '/notifications': typeof NotificationsRoute
+  '/pages': typeof PagesRoute
+  '/parent-child-attendance': typeof ParentChildAttendanceRoute
+  '/parent-child-leave': typeof ParentChildLeaveRoute
+  '/parent-child-results': typeof ParentChildResultsRoute
   '/parents': typeof ParentsRoute
   '/prayer-attendance': typeof PrayerAttendanceRoute
   '/profile': typeof ProfileRoute
@@ -306,6 +352,8 @@ export interface FileRoutesByTo {
   '/timetable': typeof TimetableRoute
   '/tutors-diary': typeof TutorsDiaryRoute
   '/wet': typeof WetRoute
+  '/superadmin/add-teacher': typeof SuperadminAddTeacherRoute
+  '/superadmin/batches': typeof SuperadminBatchesRoute
   '/superadmin/parents': typeof SuperadminParentsRoute
   '/superadmin/students': typeof SuperadminStudentsRoute
   '/superadmin/teachers': typeof SuperadminTeachersRoute
@@ -331,6 +379,10 @@ export interface FileRoutesById {
   '/moral': typeof MoralRoute
   '/my-tutors-diary': typeof MyTutorsDiaryRoute
   '/notifications': typeof NotificationsRoute
+  '/pages': typeof PagesRoute
+  '/parent-child-attendance': typeof ParentChildAttendanceRoute
+  '/parent-child-leave': typeof ParentChildLeaveRoute
+  '/parent-child-results': typeof ParentChildResultsRoute
   '/parents': typeof ParentsRoute
   '/prayer-attendance': typeof PrayerAttendanceRoute
   '/profile': typeof ProfileRoute
@@ -346,6 +398,8 @@ export interface FileRoutesById {
   '/timetable': typeof TimetableRoute
   '/tutors-diary': typeof TutorsDiaryRoute
   '/wet': typeof WetRoute
+  '/superadmin/add-teacher': typeof SuperadminAddTeacherRoute
+  '/superadmin/batches': typeof SuperadminBatchesRoute
   '/superadmin/parents': typeof SuperadminParentsRoute
   '/superadmin/students': typeof SuperadminStudentsRoute
   '/superadmin/teachers': typeof SuperadminTeachersRoute
@@ -372,6 +426,10 @@ export interface FileRouteTypes {
     | '/moral'
     | '/my-tutors-diary'
     | '/notifications'
+    | '/pages'
+    | '/parent-child-attendance'
+    | '/parent-child-leave'
+    | '/parent-child-results'
     | '/parents'
     | '/prayer-attendance'
     | '/profile'
@@ -387,6 +445,8 @@ export interface FileRouteTypes {
     | '/timetable'
     | '/tutors-diary'
     | '/wet'
+    | '/superadmin/add-teacher'
+    | '/superadmin/batches'
     | '/superadmin/parents'
     | '/superadmin/students'
     | '/superadmin/teachers'
@@ -411,6 +471,10 @@ export interface FileRouteTypes {
     | '/moral'
     | '/my-tutors-diary'
     | '/notifications'
+    | '/pages'
+    | '/parent-child-attendance'
+    | '/parent-child-leave'
+    | '/parent-child-results'
     | '/parents'
     | '/prayer-attendance'
     | '/profile'
@@ -426,6 +490,8 @@ export interface FileRouteTypes {
     | '/timetable'
     | '/tutors-diary'
     | '/wet'
+    | '/superadmin/add-teacher'
+    | '/superadmin/batches'
     | '/superadmin/parents'
     | '/superadmin/students'
     | '/superadmin/teachers'
@@ -450,6 +516,10 @@ export interface FileRouteTypes {
     | '/moral'
     | '/my-tutors-diary'
     | '/notifications'
+    | '/pages'
+    | '/parent-child-attendance'
+    | '/parent-child-leave'
+    | '/parent-child-results'
     | '/parents'
     | '/prayer-attendance'
     | '/profile'
@@ -465,6 +535,8 @@ export interface FileRouteTypes {
     | '/timetable'
     | '/tutors-diary'
     | '/wet'
+    | '/superadmin/add-teacher'
+    | '/superadmin/batches'
     | '/superadmin/parents'
     | '/superadmin/students'
     | '/superadmin/teachers'
@@ -490,6 +562,10 @@ export interface RootRouteChildren {
   MoralRoute: typeof MoralRoute
   MyTutorsDiaryRoute: typeof MyTutorsDiaryRoute
   NotificationsRoute: typeof NotificationsRoute
+  PagesRoute: typeof PagesRoute
+  ParentChildAttendanceRoute: typeof ParentChildAttendanceRoute
+  ParentChildLeaveRoute: typeof ParentChildLeaveRoute
+  ParentChildResultsRoute: typeof ParentChildResultsRoute
   ParentsRoute: typeof ParentsRoute
   PrayerAttendanceRoute: typeof PrayerAttendanceRoute
   ProfileRoute: typeof ProfileRoute
@@ -505,6 +581,8 @@ export interface RootRouteChildren {
   TimetableRoute: typeof TimetableRoute
   TutorsDiaryRoute: typeof TutorsDiaryRoute
   WetRoute: typeof WetRoute
+  SuperadminAddTeacherRoute: typeof SuperadminAddTeacherRoute
+  SuperadminBatchesRoute: typeof SuperadminBatchesRoute
   SuperadminParentsRoute: typeof SuperadminParentsRoute
   SuperadminStudentsRoute: typeof SuperadminStudentsRoute
   SuperadminTeachersRoute: typeof SuperadminTeachersRoute
@@ -616,6 +694,34 @@ declare module '@tanstack/react-router' {
       path: '/parents'
       fullPath: '/parents'
       preLoaderRoute: typeof ParentsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/parent-child-results': {
+      id: '/parent-child-results'
+      path: '/parent-child-results'
+      fullPath: '/parent-child-results'
+      preLoaderRoute: typeof ParentChildResultsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/parent-child-leave': {
+      id: '/parent-child-leave'
+      path: '/parent-child-leave'
+      fullPath: '/parent-child-leave'
+      preLoaderRoute: typeof ParentChildLeaveRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/parent-child-attendance': {
+      id: '/parent-child-attendance'
+      path: '/parent-child-attendance'
+      fullPath: '/parent-child-attendance'
+      preLoaderRoute: typeof ParentChildAttendanceRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/pages': {
+      id: '/pages'
+      path: '/pages'
+      fullPath: '/pages'
+      preLoaderRoute: typeof PagesRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/notifications': {
@@ -772,6 +878,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof SuperadminParentsRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/superadmin/batches': {
+      id: '/superadmin/batches'
+      path: '/superadmin/batches'
+      fullPath: '/superadmin/batches'
+      preLoaderRoute: typeof SuperadminBatchesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/superadmin/add-teacher': {
+      id: '/superadmin/add-teacher'
+      path: '/superadmin/add-teacher'
+      fullPath: '/superadmin/add-teacher'
+      preLoaderRoute: typeof SuperadminAddTeacherRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -794,6 +914,10 @@ const rootRouteChildren: RootRouteChildren = {
   MoralRoute: MoralRoute,
   MyTutorsDiaryRoute: MyTutorsDiaryRoute,
   NotificationsRoute: NotificationsRoute,
+  PagesRoute: PagesRoute,
+  ParentChildAttendanceRoute: ParentChildAttendanceRoute,
+  ParentChildLeaveRoute: ParentChildLeaveRoute,
+  ParentChildResultsRoute: ParentChildResultsRoute,
   ParentsRoute: ParentsRoute,
   PrayerAttendanceRoute: PrayerAttendanceRoute,
   ProfileRoute: ProfileRoute,
@@ -809,6 +933,8 @@ const rootRouteChildren: RootRouteChildren = {
   TimetableRoute: TimetableRoute,
   TutorsDiaryRoute: TutorsDiaryRoute,
   WetRoute: WetRoute,
+  SuperadminAddTeacherRoute: SuperadminAddTeacherRoute,
+  SuperadminBatchesRoute: SuperadminBatchesRoute,
   SuperadminParentsRoute: SuperadminParentsRoute,
   SuperadminStudentsRoute: SuperadminStudentsRoute,
   SuperadminTeachersRoute: SuperadminTeachersRoute,

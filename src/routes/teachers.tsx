@@ -4,6 +4,7 @@ import { PageHeader } from "@/components/PageHeader";
 import {
   ClipboardCheck, BookOpen, Megaphone, MessageSquare,
   NotebookPen, Clock, Award, Bell, ChevronRight, BookText,
+  CalendarCheck, Users, GraduationCap,
 } from "lucide-react";
 
 export const Route = createFileRoute("/teachers")({
@@ -54,21 +55,34 @@ function TeachersPage() {
 
       {/* Hero summary card */}
       <div className="p-5 rounded-3xl bg-primary-soft mb-5">
-        <p className="text-sm text-muted-foreground">Today's classes</p>
-        <p className="text-2xl font-semibold mt-1 text-foreground">Mrs. Priya · Mathematics</p>
-        <div className="flex gap-6 mt-4">
-          <div>
-            <p className="text-xs text-muted-foreground">Classes Today</p>
-            <p className="text-lg font-bold text-foreground">5</p>
+        <div className="flex items-center gap-3 mb-4">
+          <div className="h-12 w-12 rounded-2xl bg-primary/15 text-primary grid place-items-center shrink-0">
+            <GraduationCap className="h-6 w-6" />
           </div>
-          <div>
-            <p className="text-xs text-muted-foreground">Students</p>
-            <p className="text-lg font-bold text-foreground">142</p>
+          <div className="min-w-0">
+            <p className="text-xs text-muted-foreground">Today's classes</p>
+            <p className="text-lg font-semibold text-foreground truncate">Mrs. Priya · Mathematics</p>
           </div>
-          <div>
-            <p className="text-xs text-muted-foreground">To Grade</p>
-            <p className="text-lg font-bold text-foreground">8</p>
-          </div>
+        </div>
+        <div className="grid grid-cols-3 gap-2.5">
+          {[
+            { label: "Classes Today", value: "5", icon: CalendarCheck },
+            { label: "Students", value: "142", icon: Users },
+            { label: "To Grade", value: "8", icon: NotebookPen },
+          ].map((stat) => {
+            const Icon = stat.icon;
+            return (
+              <div key={stat.label} className="flex items-center gap-2.5 bg-card border border-border rounded-2xl p-3">
+                <div className="h-9 w-9 rounded-xl bg-primary/10 text-primary grid place-items-center shrink-0">
+                  <Icon className="h-4 w-4" />
+                </div>
+                <div className="min-w-0">
+                  <p className="text-sm font-bold text-foreground leading-none">{stat.value}</p>
+                  <p className="text-[9px] text-muted-foreground font-medium mt-1 truncate">{stat.label}</p>
+                </div>
+              </div>
+            );
+          })}
         </div>
       </div>
 

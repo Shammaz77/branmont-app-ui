@@ -3,7 +3,7 @@ import { AppShell } from "@/components/AppShell";
 import { PageHeader } from "@/components/PageHeader";
 import {
   Wallet, Users, Bus, MessageSquare, ClipboardCheck,
-  Award, Calendar, Bell, ChevronRight,
+  Award, Calendar, Bell, ChevronRight, User, CalendarDays,
 } from "lucide-react";
 
 export const Route = createFileRoute("/parents")({
@@ -17,21 +17,12 @@ export const Route = createFileRoute("/parents")({
 });
 
 const quickLinks = [
-  { to: "/attendance", label: "Attendance", icon: ClipboardCheck, tint: "bg-primary-soft text-primary" },
-  { to: "/results", label: "Results", icon: Award, tint: "bg-primary-soft text-primary" },
+  { to: "/parent-child-attendance", label: "Attendance", icon: ClipboardCheck, tint: "bg-primary-soft text-primary" },
+  { to: "/parent-child-results", label: "Results", icon: Award, tint: "bg-primary-soft text-primary" },
   { to: "/calendar", label: "Calendar", icon: Calendar, tint: "bg-primary-soft text-primary" },
-  { to: "/leave", label: "Leave Request", icon: Calendar, tint: "bg-primary-soft text-primary" },
+  { to: "/parent-child-leave", label: "Leave Request", icon: CalendarDays, tint: "bg-primary-soft text-primary" },
   { to: "/feedback", label: "Feedback", icon: MessageSquare, tint: "bg-primary-soft text-primary" },
   { to: "/notifications", label: "Notifications", icon: Bell, tint: "bg-primary-soft text-primary" },
-];
-
-const parentsList = [
-  { name: "Mr. Krishnan K.", meta: "Parent of Arjun K. · Grade 10-A", status: "Fees pending" },
-  { name: "Mrs. Lakshmi R.", meta: "Parent of Sneha R. · Grade 10-A", status: "Fees cleared" },
-  { name: "Mr. Vinod V.", meta: "Parent of Karthik V. · Grade 9-B", status: "PTM scheduled" },
-  { name: "Mrs. Anita S.", meta: "Parent of Meera S. · Grade 9-B", status: "Fees cleared" },
-  { name: "Mr. Deepak D.", meta: "Parent of Rohan D. · Grade 8-C", status: "Fees pending" },
-  { name: "Mrs. Geetha G.", meta: "Parent of Anjali P. · Grade 8-C", status: "Fees cleared" },
 ];
 
 const services = [
@@ -68,21 +59,33 @@ function ParentsPage() {
 
       {/* Hero summary card */}
       <div className="p-5 rounded-3xl bg-primary-soft mb-5">
-        <p className="text-sm text-muted-foreground">Your child</p>
-        <p className="text-2xl font-semibold mt-1 text-foreground">Arjun K. · Grade 10-A</p>
-        <div className="flex gap-6 mt-4">
-          <div>
-            <p className="text-xs text-muted-foreground">Attendance</p>
-            <p className="text-lg font-bold text-foreground">92%</p>
+        <div className="flex items-center gap-3 mb-4">
+          <div className="h-12 w-12 rounded-2xl bg-primary/15 text-primary grid place-items-center shrink-0">
+            <User className="h-6 w-6" />
           </div>
-          <div>
-            <p className="text-xs text-muted-foreground">GPA</p>
-            <p className="text-lg font-bold text-foreground">3.8</p>
+          <div className="min-w-0">
+            <p className="text-xs text-muted-foreground">Your child</p>
+            <p className="text-lg font-semibold text-foreground truncate">Arjun K. · Grade 10-A</p>
           </div>
-          <div>
-            <p className="text-xs text-muted-foreground">Pending Fees</p>
-            <p className="text-lg font-bold text-foreground">₹12,500</p>
-          </div>
+        </div>
+        <div className="grid grid-cols-2 gap-2.5">
+          {[
+            { label: "Attendance", value: "92%", icon: ClipboardCheck },
+            { label: "Pending Fees", value: "₹12,500", icon: Wallet },
+          ].map((stat) => {
+            const Icon = stat.icon;
+            return (
+              <div key={stat.label} className="flex items-center gap-2.5 bg-card border border-border rounded-2xl p-3">
+                <div className="h-9 w-9 rounded-xl bg-primary/10 text-primary grid place-items-center shrink-0">
+                  <Icon className="h-4 w-4" />
+                </div>
+                <div className="min-w-0">
+                  <p className="text-sm font-bold text-foreground leading-none">{stat.value}</p>
+                  <p className="text-[9px] text-muted-foreground font-medium mt-1 truncate">{stat.label}</p>
+                </div>
+              </div>
+            );
+          })}
         </div>
       </div>
 
@@ -135,30 +138,6 @@ function ParentsPage() {
               </button>
             );
           })}
-        </div>
-      </section>
-
-      {/* All parents list */}
-      <section className="mt-6">
-        <div className="flex items-center justify-between mb-3">
-          <h3 className="text-[15px] font-bold">All Parents</h3>
-          <span className="text-[11px] text-muted-foreground">{parentsList.length} guardians</span>
-        </div>
-        <div className="space-y-2">
-          {parentsList.map((p) => (
-            <div key={p.name} className="flex items-center gap-3 p-3 rounded-2xl bg-surface border border-border">
-              <div className="h-9 w-9 rounded-full bg-primary-soft text-primary grid place-items-center text-xs font-semibold shrink-0">
-                {p.name[0]}
-              </div>
-              <div className="min-w-0 flex-1">
-                <p className="text-sm font-medium truncate">{p.name}</p>
-                <p className="text-xs text-muted-foreground truncate">{p.meta}</p>
-              </div>
-              <span className="text-[10px] font-semibold text-primary bg-primary/10 rounded-full px-2.5 py-1 shrink-0">
-                {p.status}
-              </span>
-            </div>
-          ))}
         </div>
       </section>
     </AppShell>

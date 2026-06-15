@@ -3,7 +3,7 @@ import {
   Home, BookOpen, ClipboardCheck, Bell, User, GraduationCap,
   Calendar, IdCard, Clock, Building2, Sparkles, BookMarked,
   FileQuestion, Video, Award, Timer, Heart, MessageSquare, LogIn, Users,
-  Briefcase, ShieldCheck
+  Briefcase, ShieldCheck, LayoutGrid
 } from "lucide-react";
 
 const groups = [
@@ -44,6 +44,7 @@ const groups = [
   {
     label: "More",
     items: [
+      { to: "/pages", label: "All Pages", icon: LayoutGrid },
       { to: "/notifications", label: "Notifications", icon: Bell },
       { to: "/feedback", label: "Class Feedback", icon: MessageSquare },
       { to: "/superadmin", label: "Super Admin", icon: ShieldCheck },
